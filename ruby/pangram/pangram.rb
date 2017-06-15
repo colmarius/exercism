@@ -1,15 +1,15 @@
 class Pangram
-  ALPHABET_COUNT = 26
-  CHAR_REGEXP = /[a-z]/
+  LETTERS_COUNT = 26
+  LETTERS = /[a-z]/
 
   def self.pangram?(phrase)
-    uniq_chars = phrase.downcase.chars.uniq
-    valid_chars = uniq_chars.select { |char| valid_char?(char) }
-    valid_chars.count == ALPHABET_COUNT
+    unique_letters = phrase.downcase.chars.uniq
+    valid_letters = unique_letters.select { |letter| accepted?(letter) }
+    valid_letters.count == LETTERS_COUNT
   end
 
-  def self.valid_char?(char)
-    char =~ CHAR_REGEXP
+  def self.accepted?(letter)
+    letter =~ LETTERS
   end
 end
 
